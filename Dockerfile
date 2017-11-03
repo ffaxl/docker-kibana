@@ -1,6 +1,7 @@
-FROM debian:latest
+FROM ubuntu:latest
 MAINTAINER Evgeniy Slizevich <evgeniy@slizevich.net>
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG=C.UTF-8
 
 RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/* \
