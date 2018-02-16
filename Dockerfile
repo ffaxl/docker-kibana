@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/* \
     && sed -i 's|^#*elasticsearch.url: .*$|elasticsearch.url: "http://elasticsearch:9200"|g' /kibana/config/kibana.yml \
     && sed -i 's|^#*server.host: .*$|server.host: 0.0.0.0|g' /kibana/config/kibana.yml \
     && mv /kibana/config /kibana/config.orig \
-    && mkdir /kibana/config
+    && mkdir /kibana/config \
+    && chown -R kibana:kibana /kibana
 
 COPY entry /
 
